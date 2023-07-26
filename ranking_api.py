@@ -8,7 +8,7 @@ def rankingApi():
 	ranking = []
 	res = requests.get(URL)
 	html = res.text
-	soup = BeautifulSoup(html)
+	soup = BeautifulSoup(html,'html.parser')
 
 	for i in range(1,51):
 		rank = int(soup.select_one(f"#ranklist > tbody > tr:nth-child({i}) > td:nth-child({1})").text)
